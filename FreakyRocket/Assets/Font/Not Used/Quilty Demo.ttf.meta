@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fb2e818cdaa2dcd48816a5aed9ee384d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Quilty Demo
+  fontNames:
+  - Quilty Demo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 83be899b76406be4f87f9742e135ce5b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
