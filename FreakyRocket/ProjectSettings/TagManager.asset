@@ -21,14 +21,14 @@ TagManager:
   - 
   - 
   - 
+  - SceneObjects
+  - 
+  - 
+  - Player
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Fire
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1218791191
+    locked: 0
+  - name: Fire
+    uniqueID: 1838002835
+    locked: 0
+  - name: Front
+    uniqueID: 1128418275
+    locked: 0
+  - name: Player
+    uniqueID: 3228783609
     locked: 0
