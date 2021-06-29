@@ -23,7 +23,7 @@ public class StarsGenerator : MonoBehaviour
         Stars = new List<GameObject>();
         if (frequencyBot>frequencyTop)
         {
-            Debug.Log("ERROR: frequencyBot > frequencyTop");
+            Debug.LogError("ERROR: frequencyBot > frequencyTop");
             frequency = frequencyTop;
         }else frequency = Random.Range(frequencyBot, frequencyTop);
 

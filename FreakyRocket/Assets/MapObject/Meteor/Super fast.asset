@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859fe1bc561f1ab4d959370fdc152ef7, type: 3}
-  m_Name: Nothing On Touch
+  m_Script: {fileID: 11500000, guid: 760d1b6fcc072914eb1d45764ad7dd56, type: 3}
+  m_Name: Super fast
   m_EditorClassIdentifier: 
+  HuntPhaseTimes:
+  - 0.2
+  - 0.2

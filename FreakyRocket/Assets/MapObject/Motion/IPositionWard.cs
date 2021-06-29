@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.MapObject.Meteor
+namespace Assets.MapObject.Motion
 {
     public interface IPositionWard
     {

@@ -11,7 +11,7 @@ namespace Assets.MapObject.Meteor
         private float stateTime;
         private Vector2 previousPosition;
         private Vector2 huntPosition;
-        private PlayerBehaviour victimPlayer;
+        private GameObject victimPlayer;
 
         void Start()
         {
@@ -29,8 +29,9 @@ namespace Assets.MapObject.Meteor
             if (currentState != -1)
                 return;
 
-            victimPlayer = triggeredBy.gameObject.GetComponent<PlayerBehaviour>();
-            if(victimPlayer != null)
+            victimPlayer = triggeredBy.gameObject;
+
+            if(victimPlayer.tag == "Player")
             {
                 huntPosition = victimPlayer.transform.position;
                 currentState = 0;
