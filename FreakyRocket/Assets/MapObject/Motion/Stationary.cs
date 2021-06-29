@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.MapObject.Meteor
+namespace Assets.MapObject.Motion
 {
     public class Stationary : MonoBehaviour, IPositionWard
     {

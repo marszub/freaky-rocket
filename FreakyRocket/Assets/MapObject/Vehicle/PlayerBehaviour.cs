@@ -63,14 +63,23 @@ namespace Assets.MapObject.Vehicle
 
         public void Update()
         {
-            Vector2 direction = GameplayController.GetMoveDirection(transform.position);
+            Vector2 direction = GameplayController.instance.GetMoveDirection(transform.position);
             if (canRotate)
                 transform.up = direction;
             float deltaDistance = Time.unscaledDeltaTime * velocity;
             transform.position = (Vector2)transform.position + (Vector2)transform.up.normalized * deltaDistance;
         }
 
-        public void Die() => StartCoroutine(vehicle.explosion.Explode(this));
+        public void Die()
+        {
+            Collider2D[] colliders = gameObject.GetComponentsInChildren<Collider2D>();
+            foreach (Collider2D collider in colliders)
+            {
+                collider.enabled = false;
+            }
+            StartCoroutine(vehicle.explosion.Explode(this));
+            GameplayController.instance.EndScreen(false);
+        }
 
         //private void MovePlayer()
         //{

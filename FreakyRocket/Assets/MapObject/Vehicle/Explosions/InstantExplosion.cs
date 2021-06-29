@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.MApObject.Vehicle.Explosions
+namespace Assets.MapObject.Vehicle.Explosions
 {
     [CreateAssetMenu(menuName = "Freaky Rocket/Explosion/Instant")]
     public class InstantExplosion : Explosion, IExplosive

@@ -3,12 +3,11 @@ using UnityEngine;
 
 namespace Assets.MapObject.TouchHandling
 {
-    [CreateAssetMenu(menuName = "Freaky Rocket/Touch Handling/Die On Touch")]
-    public class DieOnTouch : TriggerOnTouch
+    public class DieOnTouch : TouchHandler
     {
         public override void TouchDetected(MonoBehaviour thisObject, Collider2D otherObject)
         {
-            //Debug.Log()
+            //Debug.Log(thisObject.ToString() + "____" + otherObject.ToString());
             if (otherObject.transform.parent.TryGetComponent(out PlayerBehaviour player))
             {
                 Debug.Log("Die");
