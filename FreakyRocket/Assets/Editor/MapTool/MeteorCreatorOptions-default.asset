@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16f9959f9ce6bf44aa2b8a3d0daec89, type: 3}
   m_Name: MeteorCreatorOptions-default
   m_EditorClassIdentifier: 
-  meteorSprite: {fileID: 0}
-  touchHandler: {fileID: 0}
+  meteorSprite: {fileID: 21300000, guid: 6357698d1d4a1eb4eb2cdf797189606b, type: 3}
+  touchMode: 1
   isMobile: 0
   pathObject: {fileID: 0}
+  defaultPathPath: Assets/Editor/MapTool/DefaultPath.prefab
   fullCycleTime: 1
+  offsetTime: 0
   isRotating: 0
   rotationScript: {fileID: 0}
   isHunter: 0
   huntProperties: {fileID: 0}
+  huntZone: {fileID: 0}
+  defaultHuntZonePath: Assets/Editor/MapTool/DefaultHuntingZone.prefab
+  levelDataPath: Assets/Levels/

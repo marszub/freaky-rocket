@@ -1,5 +1,5 @@
-﻿using Assets.Input;
-using Assets.MapObject.TouchHandling;
+﻿using Assets.MapObject.TouchHandling;
+using Assets.PlayerControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,13 +8,12 @@ namespace Assets.GameManagement
 {
     public class GameplayController : MonoBehaviour
     {
-        public float SegmentTime;
-        public Controlls controlls;
-        [Scene] public string nextScene;
-        [Scene] public string menuScene;
+        [SerializeField] private float SegmentTime;
+        [SerializeField] private Controlls controlls;
         public static GameplayController instance;
-        [HideInInspector] public Text endPhrase;
-        [HideInInspector] public Animator endScreenAnimator;
+        [SerializeField] private Text endPhrase;
+        [SerializeField] private Animator endScreenAnimator;
+        [SerializeField] private GameObject startButton;
 
         private float mapTime;
         private bool isMapMoving;
@@ -24,22 +23,33 @@ namespace Assets.GameManagement
 
         public delegate void EventHandler();
         public static event EventHandler Play;
+        public static event EventHandler Stop;
+
+        private void Awake()
+        {
+            instance = this;
+        }
 
         private void Start()
         {
             gameState = GameState.Preparing;
             isMapMoving = false;
             mapTime = 0;
-
-            if (instance == null)
+            
+            /*if (instance == null)
                 instance = this;
             else
             {
                 Debug.Log("GameController: Could not create an instance in GameObject: '" + gameObject.name + "', because one already exists in GameObject: '" + instance.gameObject.name + "'.");
                 Destroy(this);
-            }
+            }*/
             Play += GameplayController_Play;
             GenerateBorders();
+        }
+
+        private void OnDestroy()
+        {
+            Play -= GameplayController_Play;
         }
 
         private void GenerateBorders()
@@ -79,7 +89,14 @@ namespace Assets.GameManagement
 
         private void GameplayController_Play()
         {
+            Debug.Log("Start");
             isMapMoving = true;
+            startButton.SetActive(false);
+        }
+
+        public void PlayerOff()
+        {
+            startButton.SetActive(true);
         }
 
         private void FixedUpdate()
@@ -90,30 +107,39 @@ namespace Assets.GameManagement
             } 
         }
 
-        public void OnSubmit()
+        public void StartGame()
+        {
+            Play?.Invoke();
+        }
+
+        public void EndScreenSubmit()
         {
             switch (gameState)
             {
-                case GameState.Preparing:
-                    Play?.Invoke();
-                    break;
                 case GameState.LoseScreen:
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    GameManager.ReloadLevel();
                     break;
                 case GameState.WinScreen:
-                    SceneManager.LoadScene(nextScene);
+                    GameManager.NextLevel();
                     break;
                 default:
                     break;
             }
         }
 
-        public Vector2 GetMoveDirection(Vector2 currentPosition) => controlls.GetMoveDirection(currentPosition);
+        public Vector2 GetMoveDirection(Vector2 currentPosition)
+        {
+            return controlls.GetMoveDirection(currentPosition);
+        }
 
         public float GetMapTime() => mapTime / SegmentTime;
 
         public void EndScreen(bool success)
         {
+            startButton.SetActive(false);
+
+            Stop?.Invoke();
+
             if (success)
             {
                 endPhrase.text = "You won!";
@@ -130,7 +156,7 @@ namespace Assets.GameManagement
 
         public void GoToMenu()
         {
-            SceneManager.LoadScene(menuScene);
+            GameManager.LoadMenu();
         }
     }
 }
