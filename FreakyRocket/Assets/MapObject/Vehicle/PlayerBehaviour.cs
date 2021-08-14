@@ -1,6 +1,7 @@
 ﻿using Assets.GameManagement;
 using UnityEngine;
 using System;
+using UnityEditor;
 
 namespace Assets.MapObject.Vehicle
 {
@@ -9,23 +10,62 @@ namespace Assets.MapObject.Vehicle
         public Vehicle vehicle;
         private float velocity;
         private bool canRotate;
+        private bool pointerInside;
 
         private enum PlayerState
         {
             Preparing,
-            Running
+            Running,
+            Stop,
+            Off
         }
         private PlayerState playerState;
 
-        private void Start()
+        void Start()
         {
             vehicle.Load(this);
 
+            pointerInside = false;
             velocity = 0.0f;
             canRotate = true;
             playerState = PlayerState.Preparing;
 
             GameplayController.Play += StartVehicle;
+            GameplayController.Stop += StopVehicle;
+        }
+
+        void Update()
+        {
+            if (canRotate)
+                transform.up = GameplayController.instance.GetMoveDirection(transform.position);
+            float deltaDistance = Time.unscaledDeltaTime * velocity;
+            transform.position = (Vector2)transform.position + (Vector2)transform.up.normalized * deltaDistance;
+        }
+
+        private void OnMouseEnter()
+        {
+            pointerInside = true;
+            if (playerState == PlayerState.Running)
+                TurnOffEngines();
+        }
+
+        private void OnMouseExit()
+        {
+            pointerInside = false;
+        }
+
+        private void OnDestroy()
+        {
+            GameplayController.Play -= StartVehicle;
+            GameplayController.Stop -= StopVehicle;
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (EditorApplication.isPlaying)
+                return;
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(transform.position, 1);
         }
 
         public void StartVehicle()
@@ -33,10 +73,21 @@ namespace Assets.MapObject.Vehicle
             switch (playerState)
             {
                 case PlayerState.Preparing:
+                    if (pointerInside)
+                        break;
                     velocity = vehicle.maxVelocity;
                     canRotate = true;
                     playerState = PlayerState.Running;
                     StartCoroutine(vehicle.TurnOn(this));
+                    break;
+
+                case PlayerState.Off:
+                    if (pointerInside)
+                    {
+                        GameplayController.instance.PlayerOff();
+                        break;
+                    }
+                    TurnOnEngines();
                     break;
 
                 case PlayerState.Running:
@@ -53,21 +104,22 @@ namespace Assets.MapObject.Vehicle
             canRotate = false;
             velocity = 0.0f;
             StartCoroutine(vehicle.TurnOff(this));
+            playerState = PlayerState.Stop;
         }
 
         public void TurnOffEngines()
         {
             canRotate = false;
             StartCoroutine(vehicle.TurnOff(this));
+            GameplayController.instance.PlayerOff();
+            playerState = PlayerState.Off;
         }
 
-        public void Update()
+        public void TurnOnEngines()
         {
-            Vector2 direction = GameplayController.instance.GetMoveDirection(transform.position);
-            if (canRotate)
-                transform.up = direction;
-            float deltaDistance = Time.unscaledDeltaTime * velocity;
-            transform.position = (Vector2)transform.position + (Vector2)transform.up.normalized * deltaDistance;
+            canRotate = true;
+            StartCoroutine(vehicle.TurnOn(this));
+            playerState = PlayerState.Running;
         }
 
         public void Die()
@@ -80,13 +132,5 @@ namespace Assets.MapObject.Vehicle
             StartCoroutine(vehicle.explosion.Explode(this));
             GameplayController.instance.EndScreen(false);
         }
-
-        //private void MovePlayer()
-        //{
-        //    Vector2 direction = GameplayController.GetMoveDirection(transform.position);
-        //    float deltaDistance = Time.unscaledDeltaTime * velocity;
-        //    transform.up = direction;
-        //    transform.position = (Vector2)transform.position + direction * deltaDistance;
-        //}
     }
 }

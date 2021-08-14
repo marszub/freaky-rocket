@@ -21,14 +21,14 @@ TagManager:
   - 
   - 
   - 
-  - SceneObjects
+  - Scene Objects
   - 
   - 
   - Player
   - 
   - 
   - 
-  - Fire
+  - 
   - 
   - 
   - 
@@ -42,17 +42,11 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 1218791191
-    locked: 0
-  - name: Fire
-    uniqueID: 1838002835
-    locked: 0
-  - name: Front
-    uniqueID: 1128418275
+    uniqueID: 453278539
     locked: 0
   - name: Player
-    uniqueID: 3228783609
+    uniqueID: 2621069325
     locked: 0
-  - name: UI
-    uniqueID: 471677259
+  - name: MapObjects
+    uniqueID: 2991265593
     locked: 0

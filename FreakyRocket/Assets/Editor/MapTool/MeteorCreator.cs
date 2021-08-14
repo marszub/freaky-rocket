@@ -16,7 +16,7 @@
         private static MeteorCreatorOptions options;
         private PathCreator pathCreator = null;
         private GameObject huntZone = null;
-        [MenuItem("Window/Meteor Creator")]
+        [MenuItem("Window/Meteor Creator %#m")]
         public static void ShowWindow()
         {
             GetWindow<MeteorCreator>("Meteor Creator");
@@ -26,13 +26,13 @@
         {
             if (!options)
             {
-                options = AssetDatabase.LoadAssetAtPath<MeteorCreatorOptions>("Assets/MapTool/MeteorCreatorOptions-default.asset");
+                options = AssetDatabase.LoadAssetAtPath<MeteorCreatorOptions>("Assets/Editor/MapTool/MeteorCreatorOptions-default.asset");
 
                 if (!options)
                 {
                     options = CreateInstance<MeteorCreatorOptions>();
 
-                    AssetDatabase.CreateAsset(options, "Assets/MapTool/MeteorCreatorOptions-default.asset");
+                    AssetDatabase.CreateAsset(options, "Assets/Editor/MapTool/MeteorCreatorOptions-default.asset");
                     AssetDatabase.SaveAssets();
 
                     EditorUtility.FocusProjectWindow();
@@ -49,7 +49,7 @@
 
             if (GUILayout.Button("Choose Meteor"))
             {
-                EditorGUIUtility.ShowObjectPicker<Sprite>(options.meteorSprite, false, "meteor t:Sprite", 1);
+                EditorGUIUtility.ShowObjectPicker<Sprite>(options.meteorSprite, false, "meteor_ t:Sprite", 1);
             }
 
             if (Event.current.commandName == "ObjectSelectorUpdated" && EditorGUIUtility.GetObjectPickerControlID() == 1)
@@ -170,7 +170,7 @@
 
             SpriteRenderer spriteRenderer = meteor.AddComponent<SpriteRenderer>();
             spriteRenderer.sprite = options.meteorSprite;
-            spriteRenderer.sortingLayerName = "Front";
+            spriteRenderer.sortingLayerName = "MapObjects";
 
             meteor.AddComponent<PolygonCollider2D>();
 
