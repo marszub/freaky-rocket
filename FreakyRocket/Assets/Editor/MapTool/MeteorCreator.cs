@@ -13,6 +13,9 @@
 
     public class MeteorCreator : EditorWindow
     {
+        private const int LAYER_SCENE_OBJECTS = 16;
+        private const int LAYER_TRANSPARENT_OBJECTS = 17;
+
         private static MeteorCreatorOptions options;
         private PathCreator pathCreator = null;
         private GameObject huntZone = null;
@@ -166,11 +169,9 @@
         private void Place()
         {
             GameObject meteor = new GameObject(options.meteorSprite ? options.meteorSprite.name : "meteor");
-            meteor.layer = 16;
 
             SpriteRenderer spriteRenderer = meteor.AddComponent<SpriteRenderer>();
             spriteRenderer.sprite = options.meteorSprite;
-            spriteRenderer.sortingLayerName = "MapObjects";
 
             meteor.AddComponent<PolygonCollider2D>();
 
@@ -184,12 +185,20 @@
             {
                 case MeteorCreatorOptions.TouchMode.Nothing:
                     touchHandler = meteor.AddComponent<NothingOnTouch>();
+                    meteor.layer = LAYER_TRANSPARENT_OBJECTS;
+                    spriteRenderer.sortingLayerName = "Background";
+                    spriteRenderer.sortingOrder = 50;
                     break;
                 case MeteorCreatorOptions.TouchMode.Die:
                     touchHandler = meteor.AddComponent<DieOnTouch>();
+                    meteor.layer = LAYER_SCENE_OBJECTS;
+                    spriteRenderer.sortingLayerName = "MapObjects";
                     break;
                 case MeteorCreatorOptions.TouchMode.Trigger:
                     touchHandler = meteor.AddComponent<TriggerOnTouch>();
+                    meteor.layer = LAYER_TRANSPARENT_OBJECTS;
+                    spriteRenderer.sortingLayerName = "Background";
+                    spriteRenderer.sortingOrder = 50;
                     break;
             }
 

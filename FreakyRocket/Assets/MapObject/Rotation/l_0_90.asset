@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 690a72225d4de9c4d980073838f53fa4, type: 3}
-  m_Name: Basic Rocket
+  m_Script: {fileID: 11500000, guid: 093894b49c764e440a2b5b865ecb3b18, type: 3}
+  m_Name: l_0_90
   m_EditorClassIdentifier: 
-  maxVelocity: 14
-  vehicleObject: {fileID: 3062249014664458423, guid: 12f1ed5543cd5ab4199b71ade0344d07, type: 3}
-  explosion: {fileID: 11400000, guid: 5dcb4987f6968ff45b9e4accb31afe12, type: 2}
+  startAngle: 0
+  speed: 90
