@@ -10,6 +10,7 @@
     using UnityEditor.SceneManagement;
     using System.IO;
     using System.Collections.Generic;
+    using Assets.MapObject.TriggerHandling;
 
     public class MeteorCreator : EditorWindow
     {
@@ -19,6 +20,8 @@
         private static MeteorCreatorOptions options;
         private PathCreator pathCreator = null;
         private GameObject huntZone = null;
+        private GameObject appearZone = null;
+
         [MenuItem("Window/Meteor Creator %#m")]
         public static void ShowWindow()
         {
@@ -156,6 +159,40 @@
 
             #endregion
 
+            #region Hunt
+
+            EditorGUILayout.BeginHorizontal();
+
+            options.isAppearing = EditorGUILayout.Toggle("Appearing", options.isAppearing);
+
+            if (options.isAppearing)
+            {
+                options.appearInitialState = (Appearing.InitState)EditorGUILayout.EnumPopup("My type", options.appearInitialState);
+            }
+
+            EditorGUILayout.EndHorizontal();
+
+            if (options.isAppearing)
+            {
+                if (!appearZone)
+                    if (options.appearZone)
+                    {
+                        appearZone = Instantiate(options.appearZone);
+                        appearZone.name = "Appear zone: Meteor Creator";
+                    }
+                    else
+                    {
+                        appearZone = new GameObject("Appear zone: Meteor Creator");
+                        appearZone.AddComponent<CircleCollider2D>();
+                    }
+            }
+            else
+            {
+                UnloadAppearZone();
+            }
+
+            #endregion
+
             if (ValidData())
             {
                 if (GUILayout.Button("Place"))
@@ -233,9 +270,23 @@
 
                 GameObject zone = Instantiate(huntZone);
                 zone.name = "Hunting Zone: " + (options.meteorSprite ? options.meteorSprite.name : "unknown");
-                zone.layer = 16;
+                zone.layer = LAYER_TRANSPARENT_OBJECTS;
                 TriggerOnTouch triggerZone = zone.AddComponent<TriggerOnTouch>();
                 triggerZone.triggerHandlers = new List<Component> { hunter };
+
+                EditorUtility.FocusProjectWindow();
+            }
+
+            if (options.isAppearing)
+            {
+                Appearing appearing = meteor.AddComponent<Appearing>();
+                appearing.initialState = options.appearInitialState;
+
+                GameObject zone = Instantiate(appearZone);
+                zone.name = "Appear Zone: " + (options.meteorSprite ? options.meteorSprite.name : "unknown");
+                zone.layer = LAYER_TRANSPARENT_OBJECTS;
+                TriggerOnTouch triggerZone = zone.AddComponent<TriggerOnTouch>();
+                triggerZone.triggerHandlers = new List<Component> { appearing };
 
                 EditorUtility.FocusProjectWindow();
             }
@@ -257,6 +308,15 @@
                 options.huntZone = PrefabUtility.SaveAsPrefabAsset(huntZone.gameObject, options.defaultHuntZonePath);
                 DestroyImmediate(huntZone.gameObject);
             }
+        }        
+        
+        private void UnloadAppearZone()
+        {
+            if (appearZone)
+            {
+                options.appearZone = PrefabUtility.SaveAsPrefabAsset(appearZone.gameObject, options.defaultAppearZonePath);
+                DestroyImmediate(appearZone.gameObject);
+            }
         }
 
         private bool ValidData()
@@ -266,7 +326,8 @@
                 options.meteorSprite &&
                 (!options.isMobile || options.pathObject && options.pathObject.GetComponent<PathCreator>() && options.fullCycleTime > 0) &&
                 (!options.isRotating || options.rotationScript) &&
-                (!options.isHunter || (options.huntProperties && options.huntZone));
+                (!options.isHunter || (options.huntProperties && options.huntZone)) &&
+                (!options.isAppearing || options.appearZone);
 
         }
 

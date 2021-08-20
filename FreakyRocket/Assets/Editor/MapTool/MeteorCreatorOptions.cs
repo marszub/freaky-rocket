@@ -1,6 +1,7 @@
 ﻿using Assets.MapObject.Meteor;
 using Assets.MapObject.Rotation;
 using Assets.MapObject.TouchHandling;
+using Assets.MapObject.TriggerHandling;
 using PathCreation;
 using System;
 using System.Collections;
@@ -16,7 +17,7 @@ namespace Assets.MapTool
         public TouchMode touchMode = TouchMode.Nothing;
         public bool isMobile = false;
         public GameObject pathObject = null;
-        public string defaultPathPath = "Assets/MapTool/DefaultPath.prefab";
+        public string defaultPathPath = "Assets/Editor/MapTool/DefaultPath.prefab";
         public float fullCycleTime = 1;
         [Range(0, 1)]
         public float offsetTime = 0;
@@ -25,7 +26,11 @@ namespace Assets.MapTool
         public bool isHunter = false;
         public HuntProperties huntProperties = null;
         public GameObject huntZone = null;
-        public string defaultHuntZonePath = "Assets/MapTool/DefaultHuntingZone.prefab";
+        public string defaultHuntZonePath = "Assets/Editor/MapTool/DefaultHuntingZone.prefab";
+        public bool isAppearing = false;
+        public Appearing.InitState appearInitialState = Appearing.InitState.Invisible;
+        public GameObject appearZone = null;
+        public string defaultAppearZonePath = "Assets/Editor/MapTool/DefaultAppearZone.prefab";
         public string levelDataPath = "Assets/Levels/";
     }
 }

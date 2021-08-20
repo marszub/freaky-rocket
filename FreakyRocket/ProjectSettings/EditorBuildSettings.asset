@@ -42,6 +42,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Tut_Moving_5.unity
     guid: 7f9a219cd0c6d414d95d1cc69838e701
   - enabled: 1
+    path: Assets/Scenes/Levels/Tut_Hunt_1.unity
+    guid: df355fdaa5e46904cbb28ef5ad7faa4f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tut_Hunt_2.unity
+    guid: 3c832ba29855b3849b3b9654e187b0cd
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tut_Appear_1.unity
+    guid: 431a2c837a8f9be4681f900383f1238c
+  - enabled: 1
     path: Assets/Scenes/Levels/LastLevel.unity
     guid: 6027b43c020581e4185c48ce37380d77
   - enabled: 0

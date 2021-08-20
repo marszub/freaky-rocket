@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 760d1b6fcc072914eb1d45764ad7dd56, type: 3}
-  m_Name: Super fast
+  m_Name: Single fast
   m_EditorClassIdentifier: 
   HuntPhaseTimes:
   - 0.2
