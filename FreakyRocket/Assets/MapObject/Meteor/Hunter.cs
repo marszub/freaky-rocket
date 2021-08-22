@@ -1,4 +1,5 @@
-﻿using Assets.MapObject.TriggerHandling;
+﻿using Assets.GameManagement;
+using Assets.MapObject.TriggerHandling;
 using Assets.MapObject.Vehicle;
 using UnityEngine;
 
@@ -12,16 +13,25 @@ namespace Assets.MapObject.Meteor
         private Vector2 previousPosition;
         private Vector2 huntPosition;
         private GameObject victimPlayer;
+        private bool frozen;
 
         void Start()
         {
+            frozen = false;
             currentState = -1;
             stateTime = 0;
+            GameplayController.Stop += Stop;
         }
 
         void Update()
         {
-            stateTime += Time.deltaTime;
+            if(!frozen)
+                stateTime += Time.deltaTime;
+        }
+
+        void OnDestroy()
+        {
+            GameplayController.Stop -= Stop;
         }
 
         public void Trigger(MonoBehaviour detector, Collider2D triggeredBy)
@@ -47,7 +57,6 @@ namespace Assets.MapObject.Meteor
             float stateProgress = stateTime / properties.HuntPhaseTimes[currentState];
             while(stateProgress >=1)
             {
-                
                 previousPosition = huntPosition;
                 huntPosition = victimPlayer.transform.position;
                 stateTime -= properties.HuntPhaseTimes[currentState];
@@ -67,6 +76,11 @@ namespace Assets.MapObject.Meteor
                 return stateProgress * estimatedPosition + (1 - stateProgress) * previousPosition;
 
             return stateProgress * huntPosition + (1 - stateProgress) * previousPosition;
+        }
+
+        private void Stop()
+        {
+            frozen = true;
         }
     }
 }

@@ -25,6 +25,10 @@ namespace Assets.GameManagement
         public static event EventHandler Play;
         public static event EventHandler Stop;
 
+        public delegate void LevelEventHandler(int level);
+        public static event LevelEventHandler LevelPassed;
+        public static event LevelEventHandler Death;
+
         private void Awake()
         {
             instance = this;
@@ -144,11 +148,13 @@ namespace Assets.GameManagement
             {
                 endPhrase.text = "You won!";
                 gameState = GameState.WinScreen;
+                LevelPassed?.Invoke(GameManager.currentLevel);
             }
             else
             {
                 endPhrase.text = "You lost";
                 gameState = GameState.LoseScreen;
+                Death?.Invoke(GameManager.currentLevel);
             }
             endScreenAnimator.SetTrigger("FadeIn");
             isMapMoving = false;

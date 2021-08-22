@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Assets.GameManagement.UI;
+using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(SceneAttribute))]
