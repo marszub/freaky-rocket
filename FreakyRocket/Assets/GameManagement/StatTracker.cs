@@ -7,7 +7,7 @@ namespace Assets.GameManagement.UI
 {
     public class StatTracker : MonoBehaviour
     {
-        private static Stats stats;
+        public static Stats stats;
 
         public static int unlockedLevel { get => stats.unlockedLevel; }
 
@@ -35,6 +35,7 @@ namespace Assets.GameManagement.UI
             if(level < 1)
                 throw new ArgumentException("Level argument: " + level.ToString() + "; Expected > 0");
             stats.passesEachLevel[level]++;
+            stats.currentDeathsEachLevel[level] = 0;
 
             if (level >= stats.unlockedLevel)
                 stats.unlockedLevel = level + 1;
@@ -47,6 +48,8 @@ namespace Assets.GameManagement.UI
             if (level < 1)
                 throw new ArgumentException("Level argument: " + level.ToString() + "; Expected > 0");
             stats.deathsEachLevel[level]++;
+            stats.currentDeathsEachLevel[level]++;
+            stats.totalDeaths++;
         }
     }
 }

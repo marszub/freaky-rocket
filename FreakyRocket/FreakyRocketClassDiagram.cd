@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assets.GameManagement.UI.EndScreen.EndText.EndText" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\GameManagement\UI\EndScreen\EndText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.GameManagement.UI.EndScreen.EquivalentTextSet" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAIAAAAAAAAAAAAQAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\GameManagement\UI\EndScreen\EquivalentTextSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LastLevel" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\GameManagement\UI\LastLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\GameManagement\UI\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAQAAAgAAAAAAAIAEAAAAAAAgBAAAAAgAAAA=</HashCode>
+      <FileName>Assets\GameManagement\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.GameManagement.UI.SceneAttribute" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\GameManagement\UI\SceneAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.GameManagement.UI.StatTracker" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACQAAAAAAAAAAAAAAAAAAAACAAoAAAAAAAACAA=</HashCode>
+      <FileName>Assets\GameManagement\StatTracker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.GameManagement.GameplayController" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgBAAiAAigCAAAAwAAAAAAgAARAAABg4AKgKAAAEMA=</HashCode>
+      <FileName>Assets\GameManagement\GameplayController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.GameManagement.GlobalSettings" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAgAAAEAAAAAAACAAAAIAAA=</HashCode>
+      <FileName>Assets\GameManagement\GlobalSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.GameManagement.Stats" Collapsed="true">
+    <Position X="15.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\GameManagement\Stats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.Meteor.Hunter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYBAAIAACAAABAAIAAAAAAAAAAAAAAAICAAAAAAQAE=</HashCode>
+      <FileName>Assets\MapObject\Meteor\Hunter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Assets.MapObject.Meteor.HuntProperties" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Meteor\HuntProperties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.Meteor.MeteorBehaviour" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Meteor\MeteorBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.TouchHandling.DieOnTouch" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\TouchHandling\DieOnTouch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.TouchHandling.NothingOnTouch" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\TouchHandling\NothingOnTouch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.TouchHandling.TouchHandler" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\TouchHandling\TouchHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.TouchHandling.TriggerOnTouch" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\MapObject\TouchHandling\TriggerOnTouch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.TouchHandling.WinOnTouch" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\TouchHandling\WinOnTouch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.TriggerHandling.Appearing" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAJAABAQCAAABgAAAAAAAAAABAAAAAEICAEACAAAAg=</HashCode>
+      <FileName>Assets\MapObject\TriggerHandling\Appearing.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Assets.MapObject.Vehicle.PlayerBehaviour" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQFAAAAASAAAAAoAABgAAAAEAgAAAQAEAQAAgAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Vehicle\PlayerBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.Vehicle.Vehicle" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAgACABAAAAAAAAAAAAAAAAAAABAAAQBAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Vehicle\Vehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StarsGenerator" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAABAAACAAAAAAIAAAAAAAAAAAIACAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Background\Stars\StarsGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.Motion.PathFollower" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACgAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\MapObject\Motion\PathFollower.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Assets.MapObject.Motion.Stationary" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Motion\Stationary.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Assets.MapObject.Rotation.RotationFollower" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Rotation\RotationFollower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.Rotation.RotationLinear" Collapsed="true">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAQAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Rotation\RotationLinear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.Rotation.RotationScript" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Rotation\RotationScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.MapObject.Vehicle.Explosions.Explosion" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Vehicle\Explosions\Explosion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assets.MapObject.Vehicle.Explosions.InstantExplosion" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAgAAAAAAAAAAAAAAIAAAAg=</HashCode>
+      <FileName>Assets\MapObject\Vehicle\Explosions\InstantExplosion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assets.PlayerControl.Controlls" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\PlayerControl\Controlls.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Assets.MapObject.TriggerHandling.ITriggerHandler" Collapsed="true">
+    <Position X="13.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\TriggerHandling\ITriggerHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Assets.MapObject.TriggerHandling.ITriggerReleasedHandler" Collapsed="true">
+    <Position X="15.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\MapObject\TriggerHandling\ITriggerReleasedHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Assets.MapObject.IExplosive" Collapsed="true">
+    <Position X="10" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\IExplosive.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Assets.MapObject.Motion.IPositionWard" Collapsed="true">
+    <Position X="11.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\MapObject\Motion\IPositionWard.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,4 +1,6 @@
-﻿using Assets.MapObject.TouchHandling;
+﻿using Assets.GameManagement.UI;
+using Assets.GameManagement.UI.EndScreen;
+using Assets.MapObject.TouchHandling;
 using Assets.PlayerControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +8,7 @@ using UnityEngine.UI;
 
 namespace Assets.GameManagement
 {
+    [RequireComponent(typeof(StatTracker))]
     public class GameplayController : MonoBehaviour
     {
         [SerializeField] private float SegmentTime;
@@ -40,13 +43,6 @@ namespace Assets.GameManagement
             isMapMoving = false;
             mapTime = 0;
             
-            /*if (instance == null)
-                instance = this;
-            else
-            {
-                Debug.Log("GameController: Could not create an instance in GameObject: '" + gameObject.name + "', because one already exists in GameObject: '" + instance.gameObject.name + "'.");
-                Destroy(this);
-            }*/
             Play += GameplayController_Play;
             GenerateBorders();
         }
@@ -94,6 +90,7 @@ namespace Assets.GameManagement
         private void GameplayController_Play()
         {
             Debug.Log("Start");
+            gameState = GameState.Playing;
             isMapMoving = true;
             startButton.SetActive(false);
         }
@@ -140,24 +137,54 @@ namespace Assets.GameManagement
 
         public void EndScreen(bool success)
         {
+            if (gameState != GameState.Playing)
+                return;
             startButton.SetActive(false);
 
             Stop?.Invoke();
 
             if (success)
             {
-                endPhrase.text = "You won!";
                 gameState = GameState.WinScreen;
                 LevelPassed?.Invoke(GameManager.currentLevel);
             }
             else
             {
-                endPhrase.text = "You lost";
                 gameState = GameState.LoseScreen;
                 Death?.Invoke(GameManager.currentLevel);
             }
+
+            endPhrase.text = EndText.instance ? EndText.instance.GetText(success) : (success ? "You won" : "You lost");
+            SetDeathCounter();
             endScreenAnimator.SetTrigger("FadeIn");
             isMapMoving = false;
+        }
+
+        private void SetDeathCounter()
+        {
+            int deaths = StatTracker.stats.currentDeathsEachLevel[GameManager.currentLevel];
+
+            if (deaths == 0)
+                SetDeathCounterText("Finished", "Crashless");
+            else if(deaths == 1)
+                SetDeathCounterText("Crashed", "Once");
+            else
+                SetDeathCounterText("Crashed", deaths.ToString() + " times");
+        }
+
+        private void SetDeathCounterText(string top, string bot)
+        {
+            Text crashedBot = transform.Find("UI").Find("Crashed").GetComponent<Text>();
+            Text crashedTop = crashedBot.transform.Find("Top").GetComponent<Text>();
+
+            crashedBot.text = top;
+            crashedTop.text = top;
+
+            Text counterBot = transform.Find("UI").Find("Counter").GetComponent<Text>();
+            Text counterTop = counterBot.transform.Find("Top").GetComponent<Text>();
+
+            counterBot.text = bot;
+            counterTop.text = bot;
         }
 
         public void GoToMenu()

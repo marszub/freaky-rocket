@@ -27,10 +27,11 @@ namespace Assets.GameManagement.UI.EndScreen
             float rand = Random.Range(0, weightSum);
 
             int textIdx = 0;
+            rand -= weights[textIdx];
             while (rand > 0)
             {
-                rand -= weights[textIdx];
                 textIdx++;
+                rand -= weights[textIdx];
             }
 
             return texts[textIdx];
