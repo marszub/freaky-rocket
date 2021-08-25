@@ -20,5 +20,13 @@ namespace Assets.MapObject.TouchHandling
                 (triggerHandler as ITriggerHandler)?.Trigger(thisObject, otherObject);
             }
         }
+
+        public override void TouchReleased(MonoBehaviour thisObject, Collider2D otherObject)
+        {
+            foreach (Component triggerHandler in triggerHandlers)
+            {
+                (triggerHandler as ITriggerReleasedHandler)?.TriggerReleased(thisObject, otherObject);
+            }
+        }
     }
 }

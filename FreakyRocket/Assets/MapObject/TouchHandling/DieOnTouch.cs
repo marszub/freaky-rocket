@@ -8,7 +8,7 @@ namespace Assets.MapObject.TouchHandling
         public override void TouchDetected(MonoBehaviour thisObject, Collider2D otherObject)
         {
             //Debug.Log(thisObject.ToString() + "____" + otherObject.ToString());
-            if (otherObject.transform.parent.TryGetComponent(out PlayerBehaviour player))
+            if (otherObject.transform.parent && otherObject.transform.parent.TryGetComponent(out PlayerBehaviour player))
             {
                 Debug.Log("Die");
                 player.Die();

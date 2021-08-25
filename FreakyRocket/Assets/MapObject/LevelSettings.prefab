@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &433018256596976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433018256596978}
+  - component: {fileID: 338036626020588523}
+  m_Layer: 0
+  m_Name: LevelSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433018256596978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433018256596976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &338036626020588523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433018256596976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66157f25d2ab9a0478e5f7937e401844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialEndText: {fileID: 11400000, guid: ebbefe52fe237dd4a9ccbdb538efd9d2, type: 2}
+  winByWinsWeight: 1
+  winByWinsText:
+  - {fileID: 11400000, guid: 091f3a221ca4caa4795959beadd3a269, type: 2}
+  - {fileID: 11400000, guid: 5cfd5dc1c0c2ba1439b0eb794d94c967, type: 2}
+  winByWinsThreshod: 0100000002000000
+  winByDeathsWeight: 2
+  winByDeathsText:
+  - {fileID: 11400000, guid: 78e5291029cfb0f4c881672af1990e5c, type: 2}
+  - {fileID: 11400000, guid: 291e17a5bd3294b4b8456d443c06fa8f, type: 2}
+  winByDeathsThreshod: 000000000a000000
+  loseByDeathsWeight: 1
+  loseByDeathsText:
+  - {fileID: 11400000, guid: 0b92b8d16cf039f4fba318c3c0ae730c, type: 2}
+  - {fileID: 11400000, guid: ba8cfd2daa5ab1140a25d8a32dc218a2, type: 2}
+  - {fileID: 11400000, guid: dd5ba40b7161fad46a6c329fe7fe9fc8, type: 2}
+  loseByDeathsThreshod: 000000000a00000064000000

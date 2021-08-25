@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2aeb490f63de049b152554636cf2d1, type: 3}
+  m_Name: Win_1time
+  m_EditorClassIdentifier: 
+  texts:
+  - Congratulations!
+  - 'It wasn''t that hard,
+
+    right?'
+  - Let's go!
+  - Time for next!
+  - Another passed
+  - Good job!
+  - Next level is waiting!
+  - You did it!
+  - Let's try something harder
+  - You passed this level
+  - "No breaks, \nwe have a world to conquer"
+  - 'Wondering if the next level will be harder?
+
+    It''s pointless, check it out!'
+  - Next challange is waiting
+  - Level passed
+  - Don't wait, go on
+  weights:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0.5
+  - 1
+  - 1
+  - 3
+  - 1

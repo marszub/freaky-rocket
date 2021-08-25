@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2aeb490f63de049b152554636cf2d1, type: 3}
+  m_Name: Win_LessDeaths
+  m_EditorClassIdentifier: 
+  texts:
+  - That was fast
+  - You did very well!
+  - This level seems to be too easy for you
+  - Good job!
+  - Time for next!
+  - It wasn't that hard
+  - You're smashing it
+  - You are sailing through it, don't stop
+  - Maybe next one will be a better challange
+  - Let's go!
+  - Show me more your skill!
+  weights:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1

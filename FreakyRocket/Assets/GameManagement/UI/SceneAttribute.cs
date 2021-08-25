@@ -1,5 +1,10 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
-public class SceneAttribute : PropertyAttribute
+namespace Assets.GameManagement.UI
 {
+    public class SceneAttribute : PropertyAttribute
+    {
+
+    }
 }

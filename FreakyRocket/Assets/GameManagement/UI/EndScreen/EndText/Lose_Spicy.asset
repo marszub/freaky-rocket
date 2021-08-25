@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2aeb490f63de049b152554636cf2d1, type: 3}
+  m_Name: Lose_Spicy
+  m_EditorClassIdentifier: 
+  texts:
+  - Maybe drink some melissa?
+  - Could be better
+  - Too hard?
+  - Have you considered giving up?
+  - Let me lower the difficulty... Just kidding, go on struggling
+  - You struggle so hard. Too bad it's vain.
+  - Calm down and think over your life decisions
+  - You are still crashing
+  - You should be bored by now
+  - 'Did you know:
+
+    If you hit meteor, you probably crash'
+  - 'Did you know:
+
+    Your goal is to get to Earth, not to a random meteor'
+  - Imagine what if each time you crashed, one pilot would die
+  - 'Did you know:
+
+    The counter in the bottom right corner is NOT your score'
+  - Maybe go get some help in the Internet?
+  - It's not the best speedrun I have seen
+  - Your death score it isn't praiseworthy
+  - You are quite stubborn
+  - Again the same...
+  - Loss again and again. Maybe sometimes change something and win
+  - Each loss wastes some of your time. Look at the counter bleow to know how much
+    time have you already lost
+  - Is crashing so funny you can't stand without it?
+  - Maybe you are addicted to the meteors
+  - Your deaths are getting boring
+  - 'Did you know:
+
+    You can''t pass level just by dying'
+  - 'Did you know:
+
+    If you don''t touch meteor, you won''t crash'
+  - Everyone makes mistakes. Some just make them more often
+  - Maybe you are stressed
+  - Maybe there is a possibility that you pass this level in a far future
+  - You aren't in shape, I guess
+  - Each subsequent fail is more boring than previous. It already has acumulated
+    a little
+  - Why can't you just pass this level?
+  - Are you trying to see all of the death phrazes?
+  - Your explosion collection is already sizeable. You don't have to expand it
+  - 'Did you know:
+
+    Meteors are not collectable'
+  - It is not the best speedrun I've seen
+  weights:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0.3
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1

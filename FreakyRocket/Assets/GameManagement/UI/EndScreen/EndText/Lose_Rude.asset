@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2aeb490f63de049b152554636cf2d1, type: 3}
+  m_Name: Lose_Rude
+  m_EditorClassIdentifier: 
+  texts:
+  - Maybe consider quitting...
+  - That's probably not for you
+  - You won't do it
+  - Better play some minecraft
+  - I see you have too much time, huh?
+  - Still wasting time?
+  - Just give up
+  - There is no hope for you
+  - u mad?
+  - Why are you mad?
+  - Your efforts are Sisyphean work
+  - You won't succeed if you haven't already
+  - 'It''s not that hard.
+
+    You are just bad.'
+  - 'Did you know:
+
+    No matter how many times you crash, game does not progress'
+  - 'Did you know:
+
+    If you can read this text, it means you are bad at this game'
+  - I guess you had got a large stock of pilots
+  - 'Did you know:
+
+    Your goal is not to get the highest number on the counter
+    bleow'
+  - It's getting lame
+  - No offend, but you are lame
+  - It's embarassing
+  - Efforts are not always enough. You are great evidence.
+  - It looks like not everything is for everyone
+  - 'Did you know:
+
+    The definition of insanity is doing the same thing over and
+    over again and expecting different results.'
+  - Imagine if u pass this level... Don't mind, it's not gonna happen anyways
+  - I really want to say "You can do it!", but you can't
+  - Practice makes the master... or a loser
+  - Give it to someone who actually can play
+  - 'Did you know:
+
+    If you can see the screen, game is much easier'
+  - Everyone makes mistakes. Some just make them more often. Some don't make anythink
+    but them
+  - Just... don't
+  - You know, next time won't be beter... neither yet another
+  - ...
+  - There is one problem with this game... you
+  - You should give up
+  - Too bad
+  - Some people just won't succeed. It seems like you are one of them
+  - Are you going for high score?
+  - Go have some life
+  - You've come a long way... It looks like the journey is gonna end here
+  - Do you really want to pass this level?
+  weights:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 4
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1

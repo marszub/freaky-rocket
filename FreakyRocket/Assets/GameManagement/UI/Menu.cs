@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.GameManagement.UI;
 using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
     public void Play()
     {
-        GameManager.LoadLevel(GameManager.unlockedLevel);
+        GameManager.LoadLevel(StatTracker.unlockedLevel);
     }
 
     public void Levels()
