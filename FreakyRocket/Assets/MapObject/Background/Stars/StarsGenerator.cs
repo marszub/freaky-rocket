@@ -14,13 +14,13 @@ public class StarsGenerator : MonoBehaviour
 
     public float starBlinkProbability;
 
-    private List<GameObject> Stars;
+    private List<GameObject> stars;
 
     private float frequency;//actual stars per square unit
 
     void Start()
     {
-        Stars = new List<GameObject>();
+        stars = new List<GameObject>();
         if (frequencyBot>frequencyTop)
         {
             Debug.LogError("ERROR: frequencyBot > frequencyTop");
@@ -43,15 +43,14 @@ public class StarsGenerator : MonoBehaviour
             generatedStar.transform.localScale *= scale;
             generatedStar.transform.parent = gameObject.transform;
 
-            Stars.Add(generatedStar);
+            stars.Add(generatedStar);
         }
     }
 
     private void Update()
     {
-        if(Random.Range(0.0f,1.0f)<starBlinkProbability)
-        {
-            Stars[Random.Range(0, Stars.Count - 1)].GetComponent<Animator>().SetTrigger("Blink");
-        }
+        foreach(GameObject star in stars)
+            if(Random.Range(0.0f,1.0f) < starBlinkProbability)
+                star.GetComponent<Animator>().SetTrigger("Blink");
     }
 }

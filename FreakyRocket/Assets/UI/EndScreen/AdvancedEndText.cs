@@ -36,32 +36,32 @@ namespace Assets.GameManagement.UI.EndScreen
 
         private string GetWinByWins()
         {
-            for(int i = 0; i < winByWinsThreshod.Count; i++)
+            for (int i = 0; i < winByWinsThreshod.Count - 1; i++)
             {
-                if (winByWinsThreshod[i] <= StatTracker.stats.passesEachLevel[GameManager.currentLevel])
+                if (winByWinsThreshod[i + 1] > StatTracker.stats.passesEachLevel[GameManager.currentLevel])
                     return winByWinsText[i].GetText();
             }
-            return defaultWinText;
+            return winByWinsText[winByWinsThreshod.Count - 1].GetText();
         }
 
         private string GetWinByDeaths()
         {
-            for (int i = 0; i < winByDeathsThreshod.Count; i++)
+            for (int i = 0; i < winByDeathsThreshod.Count - 1; i++)
             {
-                if (winByDeathsThreshod[i] <= StatTracker.stats.currentDeathsEachLevel[GameManager.currentLevel])
+                if (winByDeathsThreshod[i + 1] > StatTracker.stats.currentDeathsEachLevel[GameManager.currentLevel])
                     return winByDeathsText[i].GetText();
             }
-            return defaultWinText;
+            return winByDeathsText[winByDeathsThreshod.Count - 1].GetText();
         }
 
         private string GetLoseText()
         {
-            for (int i = 0; i < loseByDeathsThreshod.Count; i++)
+            for (int i = 0; i < loseByDeathsThreshod.Count - 1; i++)
             {
-                if (loseByDeathsThreshod[i] <= StatTracker.stats.currentDeathsEachLevel[GameManager.currentLevel])
+                if (loseByDeathsThreshod[i + 1] > StatTracker.stats.currentDeathsEachLevel[GameManager.currentLevel])
                     return loseByDeathsText[i].GetText();
             }
-            return defaultLoseText;
+            return loseByDeathsText[loseByDeathsThreshod.Count - 1].GetText();
         }
     }
 }

@@ -9,8 +9,6 @@ namespace Assets.GameManagement.UI
     {
         public static Stats stats;
 
-        public static int unlockedLevel { get => stats.unlockedLevel; }
-
         private void OnEnable()
         {
             if (stats == null)

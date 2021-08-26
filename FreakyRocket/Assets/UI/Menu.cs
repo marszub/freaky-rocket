@@ -5,7 +5,7 @@ public class Menu : MonoBehaviour
 {
     public void Play()
     {
-        GameManager.LoadLevel(StatTracker.unlockedLevel);
+        GameManager.LoadLevel(GameManager.nextLevelToLoad);
     }
 
     public void Levels()

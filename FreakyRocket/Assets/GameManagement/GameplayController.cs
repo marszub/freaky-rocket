@@ -121,7 +121,7 @@ namespace Assets.GameManagement
                     GameManager.ReloadLevel();
                     break;
                 case GameState.WinScreen:
-                    GameManager.NextLevel();
+                    GameManager.ReloadLevel();
                     break;
                 default:
                     break;
