@@ -1,11 +1,13 @@
 ﻿using Assets.GameManagement;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.MapObject.TriggerHandling
 {
     public class Appearing : MonoBehaviour, ITriggerHandler, ITriggerReleasedHandler
     {
+        private List<Collider2D> collidersInside;
         public enum InitState
         {
             Visible,
@@ -22,7 +24,7 @@ namespace Assets.MapObject.TriggerHandling
         }
         private State state;
 
-        public float animationTime = 0.2f;
+        public float animationTime = 0.1f;
         private float animationProgress = 0;
         private bool frozen;
 
@@ -32,6 +34,7 @@ namespace Assets.MapObject.TriggerHandling
         // TODO: crashes if there is no rigidbody or spriteRenderer component
         private void Start()
         {
+            collidersInside = new List<Collider2D>();
             rigidbody = GetComponent<Rigidbody2D>();
             sprite = GetComponent<SpriteRenderer>();
 
@@ -62,10 +65,14 @@ namespace Assets.MapObject.TriggerHandling
         {
             if (triggeredBy.gameObject.tag == "Player") 
             {
-                if (initialState == InitState.Visible)
-                    StartCoroutine("Disappear");
-                else
-                    StartCoroutine("Appear");
+                if (collidersInside.Count == 0)
+                    if (initialState == InitState.Visible)
+                        StartCoroutine("Disappear");
+                    else
+                        StartCoroutine("Appear");
+
+                if (!collidersInside.Contains(triggeredBy))
+                    collidersInside.Add(triggeredBy);
             }
         }
 
@@ -73,10 +80,14 @@ namespace Assets.MapObject.TriggerHandling
         {
             if (triggeredBy.gameObject.tag == "Player")
             {
-                if (initialState == InitState.Visible)
-                    StartCoroutine("Appear");
-                else
-                    StartCoroutine("Disappear");
+                if (collidersInside.Contains(triggeredBy))
+                    collidersInside.Remove(triggeredBy);
+
+                if (collidersInside.Count == 0)
+                    if (initialState == InitState.Visible)
+                        StartCoroutine("Appear");
+                    else
+                        StartCoroutine("Disappear");
             }
         }
 
@@ -146,6 +157,8 @@ namespace Assets.MapObject.TriggerHandling
                     yield break;
             }
 
+            rigidbody.simulated = false;
+
             // Animation progress
             while (state == State.Disappearing)
             {
@@ -169,7 +182,6 @@ namespace Assets.MapObject.TriggerHandling
             // finish animation
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0);
             animationProgress = 0;
-            rigidbody.simulated = false;
             yield break;
         }
     }

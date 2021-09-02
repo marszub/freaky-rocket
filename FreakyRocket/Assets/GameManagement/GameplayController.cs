@@ -17,9 +17,12 @@ namespace Assets.GameManagement
         [SerializeField] private Text endPhrase;
         [SerializeField] private Animator endScreenAnimator;
         [SerializeField] private GameObject startButton;
+        [SerializeField] private AudioClip winSound;
+        [SerializeField] private AudioClip loseSound;
 
         private float mapTime;
         private bool isMapMoving;
+        private new AudioSource audio;
 
         private enum GameState { Preparing, Playing, WinScreen, LoseScreen};
         private GameState gameState;
@@ -37,19 +40,53 @@ namespace Assets.GameManagement
             instance = this;
         }
 
+        private void OnEnable()
+        {
+            Play += GameplayController_Play;
+            LevelPassed += GameplayController_LevelPassed;
+            Death += GameplayController_Death;
+        }
+
+        private void GameplayController_Play()
+        {
+            gameState = GameState.Playing;
+            isMapMoving = true;
+            startButton.SetActive(false);
+        }
+
+        private void GameplayController_LevelPassed(int _)
+        {
+            gameState = GameState.WinScreen;
+            SetDeathCounter();
+
+            audio.clip = winSound;
+            audio.Play();
+        }
+
+        private void GameplayController_Death(int _)
+        {
+            gameState = GameState.LoseScreen;
+            SetDeathCounter();
+
+            audio.clip = loseSound;
+            audio.Play();
+        }
+
         private void Start()
         {
             gameState = GameState.Preparing;
             isMapMoving = false;
             mapTime = 0;
-            
-            Play += GameplayController_Play;
+            audio = GetComponent<AudioSource>();
+
             GenerateBorders();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             Play -= GameplayController_Play;
+            LevelPassed -= GameplayController_LevelPassed;
+            Death -= GameplayController_Death;
         }
 
         private void GenerateBorders()
@@ -85,14 +122,6 @@ namespace Assets.GameManagement
             BoxCollider2D leftCollider = leftBorder.AddComponent<BoxCollider2D>();
             leftCollider.size = new Vector2(xExtent * 0.6f, 3 * yExtent);
             leftCollider.transform.position = cameraPosition - new Vector2(xExtent * 1.4f, 0);
-        }
-
-        private void GameplayController_Play()
-        {
-            Debug.Log("Start");
-            gameState = GameState.Playing;
-            isMapMoving = true;
-            startButton.SetActive(false);
         }
 
         public void PlayerOff()
@@ -144,18 +173,11 @@ namespace Assets.GameManagement
             Stop?.Invoke();
 
             if (success)
-            {
-                gameState = GameState.WinScreen;
                 LevelPassed?.Invoke(GameManager.currentLevel);
-            }
             else
-            {
-                gameState = GameState.LoseScreen;
                 Death?.Invoke(GameManager.currentLevel);
-            }
 
             endPhrase.text = EndText.instance ? EndText.instance.GetText(success) : (success ? "You won" : "You lost");
-            SetDeathCounter();
             endScreenAnimator.SetTrigger("FadeIn");
             isMapMoving = false;
         }

@@ -103,7 +103,8 @@ namespace Assets.MapObject.Vehicle
         {
             canRotate = false;
             velocity = 0.0f;
-            StartCoroutine(vehicle.TurnOff(this));
+            if(playerState == PlayerState.Running)
+                StartCoroutine(vehicle.TurnOff(this));
             playerState = PlayerState.Stop;
         }
 

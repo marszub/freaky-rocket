@@ -6,7 +6,6 @@ namespace Assets.GameManagement
     [System.Serializable]
     public class Stats
     {
-        public int unlockedLevel;
         public int totalDeaths;
         public int[] deathsEachLevel;
         public int[] currentDeathsEachLevel;
@@ -14,7 +13,6 @@ namespace Assets.GameManagement
 
         public Stats()
         {
-            unlockedLevel = 1;
             totalDeaths = 0;
             deathsEachLevel = new int[GlobalSettings.levels + 1]; // +1 is for simpler reference. Numeration from 1.
             currentDeathsEachLevel = new int[GlobalSettings.levels + 1];
