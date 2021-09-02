@@ -34,9 +34,6 @@ namespace Assets.GameManagement.UI
                 throw new ArgumentException("Level argument: " + level.ToString() + "; Expected > 0");
             stats.passesEachLevel[level]++;
             stats.currentDeathsEachLevel[level] = 0;
-
-            if (level >= stats.unlockedLevel)
-                stats.unlockedLevel = level + 1;
         }
 
         private void Death(int level)

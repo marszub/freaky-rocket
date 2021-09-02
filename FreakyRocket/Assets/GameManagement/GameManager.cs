@@ -23,7 +23,7 @@ public static class GameManager
 
     public static void LoadLevel(int lvl)
     {
-        if (lvl < 1 || lvl > GlobalSettings.levels)
+        if (lvl < 1 || lvl > GlobalSettings.levels + 1)
             throw new ArgumentException("Trying to load level out of range: " + lvl.ToString());
         _currentLevel = lvl;
         _nextLevelToLoad = lvl;
@@ -38,11 +38,10 @@ public static class GameManager
 
     public static void LevelPassed(int level)
     {
-        if (level < GlobalSettings.levels)
+        _nextLevelToLoad++;
+        if (level < GlobalSettings.levels && _unlockedLevel < nextLevelToLoad)
         {
-            _nextLevelToLoad++;
-            if (_unlockedLevel < nextLevelToLoad)
-                _unlockedLevel = nextLevelToLoad;
+            _unlockedLevel = nextLevelToLoad;
         }
     }
 
