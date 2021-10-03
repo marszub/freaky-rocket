@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class LevelsMenu : MonoBehaviour
@@ -60,10 +61,14 @@ public class LevelsMenu : MonoBehaviour
 
     public void OnPageLoaded()
     {
-        if(currentPage > 1)
+        if (currentPage > 1)
             transform.Find("Left button").GetComponent<Button>().interactable = true;
+        else
+            transform.Find("Left button").GetComponent<EventTrigger>().triggers.Clear();
 
         if (currentPage < (GameManager.unlockedLevel - 1) / LevelsPage.levelsPerPage + 1)
             transform.Find("Right button").GetComponent<Button>().interactable = true;
+        else
+            transform.Find("Right button").GetComponent<EventTrigger>().triggers.Clear();
     }
 }

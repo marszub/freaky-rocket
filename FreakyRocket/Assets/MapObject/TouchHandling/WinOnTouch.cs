@@ -7,7 +7,8 @@ namespace Assets.MapObject.TouchHandling
     {
         public override void TouchDetected(MonoBehaviour thisObject, Collider2D otherObject)
         {
-            GameplayController.instance.EndScreen(true);
+            if(otherObject.gameObject.tag == "Player")
+                GameplayController.instance.EndScreen(true);
         }
     }
 }

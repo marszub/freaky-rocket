@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace Assets.MapObject.Vehicle
 {
-    public class PlayerBehaviour : MonoBehaviour
+    public class PlayerBehaviour : MonoBehaviour, IKillable
     {
         public Vehicle vehicle;
         private float velocity;
@@ -60,6 +60,7 @@ namespace Assets.MapObject.Vehicle
             GameplayController.Stop -= StopVehicle;
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if (EditorApplication.isPlaying)
@@ -67,6 +68,7 @@ namespace Assets.MapObject.Vehicle
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(transform.position, 1);
         }
+#endif
 
         public void StartVehicle()
         {
@@ -130,7 +132,8 @@ namespace Assets.MapObject.Vehicle
             {
                 collider.enabled = false;
             }
-            StartCoroutine(vehicle.explosion.Explode(this));
+            StopVehicle();
+            StartCoroutine(vehicle.explosion.Explode(gameObject));
             GameplayController.instance.EndScreen(false);
         }
     }

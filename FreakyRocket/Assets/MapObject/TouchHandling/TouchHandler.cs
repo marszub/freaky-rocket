@@ -6,13 +6,13 @@ namespace Assets.MapObject.TouchHandling
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Trigger activated");
+            Debug.Log("Trigger " + gameObject.name + " activated by " + collision.name);
             TouchDetected(this, collision);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            Debug.Log("Trigger left");
+            Debug.Log("Trigger " + gameObject.name + " left by " + collision.name);
             TouchReleased(this, collision);
         }
 

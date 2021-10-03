@@ -1,4 +1,5 @@
-﻿using Assets.MapObject.Vehicle;
+﻿using Assets.GameManagement;
+using Assets.MapObject.Vehicle;
 using UnityEngine;
 
 namespace Assets.MapObject.TouchHandling
@@ -7,11 +8,10 @@ namespace Assets.MapObject.TouchHandling
     {
         public override void TouchDetected(MonoBehaviour thisObject, Collider2D otherObject)
         {
-            //Debug.Log(thisObject.ToString() + "____" + otherObject.ToString());
-            if (otherObject.transform.parent && otherObject.transform.parent.TryGetComponent(out PlayerBehaviour player))
+            if (otherObject.transform.parent && otherObject.transform.parent.TryGetComponent(out IKillable killable))
             {
                 Debug.Log("Die");
-                player.Die();
+                killable.Die();
             }
         }
     }

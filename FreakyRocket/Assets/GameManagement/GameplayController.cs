@@ -57,7 +57,6 @@ namespace Assets.GameManagement
         private void GameplayController_LevelPassed(int _)
         {
             gameState = GameState.WinScreen;
-            SetDeathCounter();
 
             audio.clip = winSound;
             audio.Play();
@@ -66,7 +65,6 @@ namespace Assets.GameManagement
         private void GameplayController_Death(int _)
         {
             gameState = GameState.LoseScreen;
-            SetDeathCounter();
 
             audio.clip = loseSound;
             audio.Play();
@@ -98,6 +96,7 @@ namespace Assets.GameManagement
             GameObject topBorder = new GameObject("Top border");
             topBorder.transform.parent = transform;
             topBorder.AddComponent<DieOnTouch>();
+            topBorder.layer = GlobalSettings.LAYER_TRANSPARENT_OBJECTS;
             BoxCollider2D topCollider = topBorder.AddComponent<BoxCollider2D>();
             topCollider.size = new Vector2(3 * xExtent, yExtent * 0.6f);
             topCollider.transform.position = cameraPosition + new Vector2(0, yExtent * 1.5f);
@@ -105,6 +104,7 @@ namespace Assets.GameManagement
             GameObject botBorder = new GameObject("Bot border");
             botBorder.transform.parent = transform;
             botBorder.AddComponent<DieOnTouch>();
+            botBorder.layer = GlobalSettings.LAYER_TRANSPARENT_OBJECTS;
             BoxCollider2D botCollider = botBorder.AddComponent<BoxCollider2D>();
             botCollider.size = new Vector2(3 * xExtent, yExtent * 0.6f);
             botCollider.transform.position = cameraPosition - new Vector2(0, yExtent * 1.5f);
@@ -112,6 +112,7 @@ namespace Assets.GameManagement
             GameObject rightBorder = new GameObject("Right border");
             rightBorder.transform.parent = transform;
             rightBorder.AddComponent<DieOnTouch>();
+            rightBorder.layer = GlobalSettings.LAYER_TRANSPARENT_OBJECTS;
             BoxCollider2D rightCollider = rightBorder.AddComponent<BoxCollider2D>();
             rightCollider.size = new Vector2(xExtent * 0.6f, 3 * yExtent);
             rightCollider.transform.position = cameraPosition + new Vector2(xExtent * 1.4f, 0);
@@ -119,6 +120,7 @@ namespace Assets.GameManagement
             GameObject leftBorder = new GameObject("Left border");
             leftBorder.transform.parent = transform;
             leftBorder.AddComponent<DieOnTouch>();
+            leftBorder.layer = GlobalSettings.LAYER_TRANSPARENT_OBJECTS;
             BoxCollider2D leftCollider = leftBorder.AddComponent<BoxCollider2D>();
             leftCollider.size = new Vector2(xExtent * 0.6f, 3 * yExtent);
             leftCollider.transform.position = cameraPosition - new Vector2(xExtent * 1.4f, 0);
@@ -172,20 +174,26 @@ namespace Assets.GameManagement
 
             Stop?.Invoke();
 
+            int deaths;
             if (success)
+            {
+                deaths = StatTracker.stats.currentDeathsEachLevel[GameManager.currentLevel];
                 LevelPassed?.Invoke(GameManager.currentLevel);
+            }
             else
+            {
                 Death?.Invoke(GameManager.currentLevel);
+                deaths = StatTracker.stats.currentDeathsEachLevel[GameManager.currentLevel];
+            }
+            SetDeathCounter(deaths);
 
             endPhrase.text = EndText.instance ? EndText.instance.GetText(success) : (success ? "You won" : "You lost");
             endScreenAnimator.SetTrigger("FadeIn");
             isMapMoving = false;
         }
 
-        private void SetDeathCounter()
+        private void SetDeathCounter(int deaths)
         {
-            int deaths = StatTracker.stats.currentDeathsEachLevel[GameManager.currentLevel];
-
             if (deaths == 0)
                 SetDeathCounterText("Finished", "Crashless");
             else if(deaths == 1)
@@ -209,9 +217,6 @@ namespace Assets.GameManagement
             counterTop.text = bot;
         }
 
-        public void GoToMenu()
-        {
-            GameManager.LoadMenu();
-        }
+        public void GoToMenu() => GameManager.LoadMenu();
     }
 }
