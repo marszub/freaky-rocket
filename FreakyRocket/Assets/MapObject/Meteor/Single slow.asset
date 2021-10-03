@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Single slow
   m_EditorClassIdentifier: 
   HuntPhaseTimes:
-  - 1
-  - 1
+  - 2
+  - 2

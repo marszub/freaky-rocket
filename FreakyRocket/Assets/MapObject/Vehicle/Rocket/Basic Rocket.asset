@@ -16,4 +16,4 @@ MonoBehaviour:
   vehicleObject: {fileID: 3062249014664458423, guid: 12f1ed5543cd5ab4199b71ade0344d07, type: 3}
   explosion: {fileID: 11400000, guid: 5dcb4987f6968ff45b9e4accb31afe12, type: 2}
   onOfftransitionTime: 1
-  volume: 0.05
+  volume: 1
