@@ -180,15 +180,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 338036626020588523, guid: c9f0fc970c70d7545ae3932ba9142cc3, type: 3}
       propertyPath: winByDeathsThreshod.Array.data[1]
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 338036626020588523, guid: c9f0fc970c70d7545ae3932ba9142cc3, type: 3}
       propertyPath: loseByDeathsThreshod.Array.data[1]
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 338036626020588523, guid: c9f0fc970c70d7545ae3932ba9142cc3, type: 3}
       propertyPath: loseByDeathsThreshod.Array.data[2]
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9f0fc970c70d7545ae3932ba9142cc3, type: 3}
