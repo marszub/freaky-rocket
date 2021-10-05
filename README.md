@@ -1,6 +1,6 @@
 ![Banner](./media/Banner.png)
 
-# Freaky Rocket [<img alt="Play" title="Play" width="24px" src="./media/PlayButton.png"/>](https://givrox7.itch.io/hunt-gargul "Play")
+# Freaky Rocket [<img alt="Play" title="Play" width="24px" src="./media/PlayButton.png"/>](https://givrox7.itch.io/freaky-rocket "Play")
 
 A simple 2D arcade game.
 
