@@ -6,7 +6,7 @@ A simple 2D arcade game.
 
 ## Goal
 
-You control a rocket and try to get to the Earth. Find your way between unpredictable meteors and come back home. 
+You control a rocket and try to get to Earth. Find your way between unpredictable meteors and come back home. 
 
 ## Controls
 
